@@ -203,8 +203,8 @@ def pack_model(model, overlap_pct, metric='min', verbose=True, section_size=256)
             start_idx = section_size*j
             end_idx = section_size*(j+1)
             row_idxs, cols_j = pack_matrix(param[:, start_idx:end_idx],
-                                           max_paths=layer.groups,
-                                           max_overlap=overlap, metric=metric)
+                                           max_paths=layer.groups,  #max move is the number of group 
+                                           max_overlap=overlap, metric=metric) #overlap = gamma
             cols_j = [[cj + start_idx for cj in ci] for ci in cols_j]
             col_idxs.extend(cols_j)
 
