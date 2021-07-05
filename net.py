@@ -81,9 +81,9 @@ class Conv2d(nn.Module):
         self.kernel_size = kernel_size
 
         N = out_channels*in_channels*kernel_size*kernel_size
-        n = kernel_size * kernel_size * out_channels
+        n = kernel_size * kernel_size * out_channel
         self._weight = nn.Parameter(torch.Tensor(N))
-        self._weight.data.normal_(0, math.sqrt(2. / n))
+        self._weight.data.normal_(0, math.sqrt(2. / n))        #weight initialization 
 
         self.register_buffer('_mask', torch.ones(N))
 
