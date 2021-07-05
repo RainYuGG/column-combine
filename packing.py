@@ -182,7 +182,7 @@ def count_nonzeros(model_path):
     return rows, cols
  
 
-def pack_model(model, overlap_pct, metric='min', verbose=False, section_size=256):
+def pack_model(model, overlap_pct, metric='min', verbose=True, section_size=256):
     model.eval()
     model.cuda()
     combined_rows, combined_cols = [], []
