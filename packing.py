@@ -191,6 +191,9 @@ def pack_model(model, overlap_pct, metric='min', verbose=True, section_size=256)
         param = layer.weight.data
         B, C, W, H = param.shape
         overlap = int(overlap_pct*B)
+        if verbose:
+            print('B, C, W, H:\n' ,B, C, W, H)
+            print('overlap:\n',overlap)
         param = param.view(B, C*W*H).cpu().numpy()
         num_sections = math.ceil(param.shape[1] / section_size)
         col_idxs = []
