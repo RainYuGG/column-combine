@@ -52,7 +52,7 @@ def train(model, train_loader, val_loader, args):
             util.prune(model, prune_rates[prune_epoch])
             curr_weights, num_weights = util.num_nonzeros(model)
             packing.pack_model(model, args.gamma)
-            macs = np.sum([x*y for x, y in model.packed_layer_size])
+            macs = np.sum([x*y for x, y in model.packed_layer_size])  #curr size of all packed layers mat 
             curr_weights, num_weights = util.num_nonzeros(model)
             prune_epoch += 1
 
