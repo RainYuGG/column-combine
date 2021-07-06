@@ -195,7 +195,7 @@ def pack_model(model, overlap_pct, metric='min', verbose=True, section_size=256)
         num_sections = math.ceil(param.shape[1] / section_size) 
         if verbose:
             print('B, C, W, H: {}\t overlap:{} \t param.shape[1]:{}'.format(B, C, W, H, overlap, param.shape[1]))
-            print('num_sections:{}'.format(num_section))
+            print('num_sections:{}'.format(num_sections))
         col_idxs = []
         for j in range(num_sections):
             if verbose: 
